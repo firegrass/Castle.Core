@@ -216,7 +216,7 @@ limitations under the License.
 		<Message Text="Running tests from assemblies: $(TestAssemblies)" />
 		
 		<Exec Command="$(NUnitPath)$(NUnitExecutable) /nologo $(TestAssemblies) /xml=$(NUnitTestResultXmlFiles) /framework=$(TargetFrameworkVersion)" Condition=" '$(TEAMCITY_VERSION)' == '' and '$(OS)' == 'Windows_NT' " />
-		<Exec Command="mono ~/plugins/dotnetPlugin/bin/JetBrains.BuildServer.NUnitLauncher.exe mono-2.0 x86 NUnit-2.5.5 $(OutputPath)Castle.Core.Tests.dll" Condition=" '$(OS)' != 'Windows_NT' " />
+		<Exec Command="mono ~/tcagent/plugins/dotnetPlugin/bin/JetBrains.BuildServer.NUnitLauncher.exe mono-2.0 x86 NUnit-2.5.5 $(OutputPath)Castle.Core.Tests.dll" Condition=" '$(OS)' != 'Windows_NT' " />
 
 		<!-- TC NUnit launcher crashes on 64bit Linux with Mono
 		<Exec Command="$(MonoShell) S(teamcity_dotnet_nunitlauncher) mono-2.0 x86 NUnit-2.5.5 $(OutputPath)Castle.Core.Tests.dll" Condition=" '$(TEAMCITY_VERSION)' != '' and '$(OS)' != 'Windows_NT' " />
